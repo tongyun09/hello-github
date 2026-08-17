@@ -11,7 +11,7 @@ def greet(name: str = "GitHub") -> str:
 def main() -> None:
     print(greet())
     print("这是我的第一个 GitHub 项目！")
-
+    print("很高兴认识你！")
 
 if __name__ == "__main__":
     main()
