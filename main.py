@@ -11,6 +11,12 @@ def test() -> None:
     print(greet())
     print("这是我的第一个 GitHub 项目！")
     print("我的名字是tongyun,很高兴认识你！")
+
+    name = input("你叫什么名字？")
+    if name:
+        print(greet(name))
+    else:
+        print("没关系，保持神秘也不错！")
     
 if __name__ == "__main__":
     test()
