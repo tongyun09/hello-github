@@ -7,7 +7,7 @@ def greet(name: str = "GitHub") -> str:
     """返回一句问候语。"""
     return f"Hello, {name}! 今天是 {date.today().isoformat()}"
 
-def test() -> None:
+def main() -> None:
     print(greet())
     print("这是我的第一个 GitHub 项目！")
     print("我的名字是tongyun,很高兴认识你！")
@@ -19,4 +19,4 @@ def test() -> None:
         print("没关系，保持神秘也不错！")
     
 if __name__ == "__main__":
-    test()
+    main()
