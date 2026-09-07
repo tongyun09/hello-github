@@ -20,6 +20,8 @@ def load_tasks() -> list:
     # 如果读取到的是字符串列表（旧格式），转换为新格式
     if data and isinstance(data[0], str):
         return [{"task": t, "done": False} for t in data]
+    for t in data:
+        t.setdefault("priority", "中")
     return data
 
 
@@ -52,8 +54,8 @@ def todo() -> None:
         else:
             for i, t in enumerate(tasks, 1):
                 status = "✓" if t["done"] else " "
-                print(f"{i}. [{status}] {t['task']}")
-        print("(a)添加  (d)删除  (t)切换完成状态  (q)退出")
+                print(f"{i}. [{status}] <{t['priority']}> {t['task']}")
+        print("(a)添加  (d)删除  (t)切换完成状态  (p)修改优先级  (q)退出")
         choice = input("选择: ").strip().lower()
 
         if choice == "q":
@@ -80,6 +82,17 @@ def todo() -> None:
                 save_tasks(tasks)
             else:
                 print("无效编号")
+        elif choice == "p":
+            num = input("输入任务编号: ").strip()
+            if num.isdigit() and 1 <= int(num) <= len(tasks):
+                p = input("优先级(高/中/低): ").strip()
+                if p in ("高", "中", "低"):
+                    tasks[int(num) - 1]["priority"] = p
+                    save_tasks(tasks)
+                else:
+                    print("优先级只能是 高/中/低")
+            else:
+                print("无效编号")        
         else:
             print("无效选项，请重新输入")
 
