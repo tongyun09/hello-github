@@ -19,7 +19,7 @@ def load_tasks() -> list:
     data = json.loads(TASKS_FILE.read_text(encoding="utf-8"))
     # 如果读取到的是字符串列表（旧格式），转换为新格式
     if data and isinstance(data[0], str):
-        return [{"task": t, "done": False} for t in data]
+        data = [{"task": t, "done": False} for t in data]
     for t in data:
         t.setdefault("priority", "中")
     return data
