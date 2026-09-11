@@ -34,7 +34,7 @@ def save_tasks(tasks: list) -> None:
 
 def main() -> None:
     print(greet())
-    print("这是我的第一个 GitHub 项目！")
+    print("这是我的第一个 GitHub 项目！—— main 分支的版本")
     print("我的名字是tongyun,很高兴认识你！")
 
     name = input("你叫什么名字？")
